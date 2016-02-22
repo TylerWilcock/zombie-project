@@ -36,8 +36,7 @@ public class Main {
       switch(type){
         case 0: survivors[i] = (ISurvivor) factory.make("soldier"); break;
         case 1: survivors[i] = (ISurvivor) factory.make("teacher"); break;
-        case 2: survivors[i] = (ISurvivor) factory.make("student"); break;
-        case 3: survivors[i] = (ISurvivor) factory.make("child"); break;
+        case 2: survivors[i] = (ISurvivor) factory.make("child"); break;
       }
     }
     return survivors;
@@ -61,6 +60,29 @@ public class Main {
 
     System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
     System.out.println("But there are " + zombies.length + " zombies waiting for them.");
+    
+    while(!allDead(zombies) && !allDead(survivors)) {
+    	for(int i = 0; i < survivors.length; i++) {
+    		if(survivors[i].isAlive()) {
+    			for(int j = 0; j < zombies.length; j++) {
+    				if(zombies[j].isAlive()) {
+    					survivors[i].attack(zombies[j]);
+    				}
+    			}
+    		}
+    	}
+    	
+    	for(int i = 0; i < zombies.length; i++) {
+    		if(zombies[i].isAlive()) {
+    			for(int j = 0; j < survivors.length; j++) {
+    				if(survivors[j].isAlive()) {
+    					zombies[i].attack(survivors[j]);
+    				}
+    			}
+    		}
+    	}
+    }
+    
     
     //TODO: the survivors attack first.  One characte attack each zombie.
     //      When all the survivors have done attacking, it's the zombies' 
