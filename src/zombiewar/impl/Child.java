@@ -5,14 +5,14 @@ import zombiewar.intf.IZombie;
 
 public class Child extends Character implements ISurvivor {
 	/**
-	 * A soldier starts with 100 points of health
+	 * A child starts with 20 points of health
 	 */
 	public Child() {
-		super(100);
+		super(20);
 	}
 
 	@Override
 	public void attack(IZombie zombie) {
-		zombie.decreaseHealth(10);
+		zombie.decreaseHealth(2);
 	}
 }
