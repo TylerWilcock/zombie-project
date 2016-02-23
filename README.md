@@ -10,7 +10,7 @@ infected zombie is weak and does little damage. Tank on the other can do a lot
 of damage and can take a lot of attack before it dies.  
 
 The types of survivors include:  soldier, teacher, and child.  A soldier is
-strong and can do serious damage while a teacher or a child does little damage.
+strong and can do serious damage while a teacher or a child does almost no damage.
 Since a child is so weak, he or she usually does not survive the escape.  
 
 #Character data:
