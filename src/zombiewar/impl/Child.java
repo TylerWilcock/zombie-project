@@ -15,4 +15,8 @@ public class Child extends Character implements ISurvivor {
 	public void attack(IZombie zombie) {
 		zombie.decreaseHealth(2);
 	}
+	
+	public String survivorType(){
+		return "Child";
+	}
 }

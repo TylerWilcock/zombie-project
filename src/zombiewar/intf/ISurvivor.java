@@ -15,4 +15,9 @@ public interface ISurvivor extends ICharacter{
 	 * @param zombie 
 	 */
 	public void attack(IZombie zombie);
+	
+	/**
+	 * get the type of the survivor
+	 */
+	public String survivorType();
 }

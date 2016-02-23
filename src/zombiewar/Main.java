@@ -18,7 +18,7 @@ public class Main {
     int numZombies = (int) (Math.random() * 10);
     IZombie[] zombies = new IZombie[numZombies];
     for (int i = 0; i < zombies.length; i++) {
-      int zombieType = (int) (Math.random() * 2);
+      int zombieType = (int) (Math.random() * 3);
       switch(zombieType){
         case 0: zombies[i] = (IZombie) factory.make("common"); break;
         case 1: zombies[i] = (IZombie) factory.make("tank"); break;
@@ -29,8 +29,8 @@ public class Main {
   }
 
   public static ISurvivor[] randomSurvivors() {
-    int numZombies = (int) (Math.random() * 20);
-    ISurvivor[] survivors = new ISurvivor[numZombies];
+    int numSurvivors = (int) (Math.random() * 20);
+    ISurvivor[] survivors = new ISurvivor[numSurvivors];
     for (int i = 0; i < survivors.length; i++) {
       int type = (int) (Math.random() * 3);
       switch(type){
@@ -61,12 +61,18 @@ public class Main {
     System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
     System.out.println("But there are " + zombies.length + " zombies waiting for them.");
     
+   //int childCount, commonInfectedCount, predatorCount, soldierCount, tankCount, teacherCount = 0;
     while(!allDead(zombies) && !allDead(survivors)) {
     	for(int i = 0; i < survivors.length; i++) {
     		if(survivors[i].isAlive()) {
     			for(int j = 0; j < zombies.length; j++) {
     				if(zombies[j].isAlive()) {
     					survivors[i].attack(zombies[j]);
+    					if(!zombies[j].isAlive()){ //survivor has killed the zombie
+    						String zombieType = zombies[j].zombieType();
+    						String survivorType = survivors[i].survivorType();
+    						System.out.println(survivorType + " killed " + zombieType);
+    					}
     				}
     			}
     		}
@@ -77,6 +83,11 @@ public class Main {
     			for(int j = 0; j < survivors.length; j++) {
     				if(survivors[j].isAlive()) {
     					zombies[i].attack(survivors[j]);
+    					if(!survivors[j].isAlive()){ //zombie has killed the survivor
+    						String survivorType = survivors[j].survivorType();
+    						String zombieType = zombies[i].zombieType();
+    						System.out.println(zombieType + " killed " + survivorType);
+    					}
     				}
     			}
     		}

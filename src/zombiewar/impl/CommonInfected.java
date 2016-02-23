@@ -19,4 +19,8 @@ public class CommonInfected extends Character implements IZombie {
 	public void attack(ISurvivor survivor) {
 		survivor.decreaseHealth(5);
 	}
+	
+	public String zombieType(){
+		return "CommonInfected";
+	}
 }

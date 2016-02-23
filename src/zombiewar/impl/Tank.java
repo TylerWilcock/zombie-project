@@ -27,4 +27,8 @@ public class Tank extends Character implements IZombie{
 		survivor.decreaseHealth(20);
 	}
 	
+	public String zombieType(){
+		return "Tank";
+	}
+	
 }

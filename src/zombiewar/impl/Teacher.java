@@ -15,4 +15,8 @@ public class Teacher extends Character implements ISurvivor {
 	public void attack(IZombie zombie) {
 		zombie.decreaseHealth(5);
 	}
+	
+	public String survivorType(){
+		return "Teacher";
+	}
 }

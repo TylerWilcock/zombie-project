@@ -28,5 +28,9 @@ public class Soldier extends Character implements ISurvivor{
 		zombie.decreaseHealth(10);
 	}
 	
+	public String survivorType(){
+		return "Soldier";
+	}
+	
 	
 }
