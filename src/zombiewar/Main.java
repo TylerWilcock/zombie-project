@@ -61,7 +61,6 @@ public class Main {
     System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
     System.out.println("But there are " + zombies.length + " zombies waiting for them.");
     
-   //int childCount, commonInfectedCount, predatorCount, soldierCount, tankCount, teacherCount = 0;
     while(!allDead(zombies) && !allDead(survivors)) {
     	for(int i = 0; i < survivors.length; i++) {
     		if(survivors[i].isAlive()) {
