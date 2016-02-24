@@ -9,6 +9,16 @@ import zombiewar.intf.ICharacterFactory;
  */
 public class CharacterFactory implements ICharacterFactory{
   
+	/* Zombie's */
+	public static final String TANK = "TANK";
+	public static final String PREDATOR = "PREDATOR";
+	public static final String COMMON = "COMMON";
+	
+	/* Survivors */
+	public static final String SOLDIER = "SOLDIER";
+	public static final String TEACHER = "TEACHER";
+	public static final String CHILD = "CHILD";
+	
   public static final ICharacterFactory instance = new CharacterFactory();
   
   private CharacterFactory(){
@@ -27,12 +37,12 @@ public class CharacterFactory implements ICharacterFactory{
   @Override
   public ICharacter make(String type) {
     switch(type){
-      case "tank"     : return new Tank();
-      case "predator" : return new Predator();
-      case "common"   : return new CommonInfected();
-      case "soldier"  : return new Soldier();
-      case "teacher"  : return new Teacher();
-      case "child"    : return new Child();
+      case TANK     : return new Tank();
+      case PREDATOR : return new Predator();
+      case COMMON   : return new CommonInfected();
+      case SOLDIER  : return new Soldier();
+      case TEACHER  : return new Teacher();
+      case CHILD    : return new Child();
     }
     return null;
   }
