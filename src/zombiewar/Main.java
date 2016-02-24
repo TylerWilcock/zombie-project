@@ -14,15 +14,22 @@ public class Main {
   
   private static final ICharacterFactory factory = CharacterFactory.instance;
   
+  static int commonCount = 0;
+  static int tankCount = 0;
+  static int predatorCount = 0;
+  static int soldierCount = 0;
+  static int teacherCount = 0;
+  static int childCount = 0;
+  
   public static IZombie[] randomZombies() {
     int numZombies = (int) (Math.random() * 10);
     IZombie[] zombies = new IZombie[numZombies];
     for (int i = 0; i < zombies.length; i++) {
       int zombieType = (int) (Math.random() * 3);
       switch(zombieType){
-        case 0: zombies[i] = (IZombie) factory.make("common"); break;
-        case 1: zombies[i] = (IZombie) factory.make("tank"); break;
-        case 2: zombies[i] = (IZombie) factory.make("predator"); break;
+        case 0: zombies[i] = (IZombie) factory.make("common"); commonCount++; break;
+        case 1: zombies[i] = (IZombie) factory.make("tank"); tankCount++; break;
+        case 2: zombies[i] = (IZombie) factory.make("predator"); predatorCount++; break;
       }
     }
     return zombies;
@@ -34,9 +41,9 @@ public class Main {
     for (int i = 0; i < survivors.length; i++) {
       int type = (int) (Math.random() * 3);
       switch(type){
-        case 0: survivors[i] = (ISurvivor) factory.make("soldier"); break;
-        case 1: survivors[i] = (ISurvivor) factory.make("teacher"); break;
-        case 2: survivors[i] = (ISurvivor) factory.make("child"); break;
+        case 0: survivors[i] = (ISurvivor) factory.make("soldier"); soldierCount++; break;
+        case 1: survivors[i] = (ISurvivor) factory.make("teacher"); teacherCount++; break;
+        case 2: survivors[i] = (ISurvivor) factory.make("child"); childCount++; break;
       }
     }
     return survivors;
@@ -58,8 +65,8 @@ public class Main {
     IZombie[] zombies = randomZombies();
     ISurvivor[] survivors = randomSurvivors();
 
-    System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
-    System.out.println("But there are " + zombies.length + " zombies waiting for them.");
+    System.out.println("We have " + survivors.length + " survivors trying to make it to safety (" +childCount + " children, " + teacherCount + " teachers, " + soldierCount + " soldiers).");
+    System.out.println("But there are " + zombies.length + " zombies waiting for them (" +commonCount + " common infected, " + predatorCount + " predators, " + tankCount + " tanks).");
     
     while(!allDead(zombies) && !allDead(survivors)) {
     	for(int i = 0; i < survivors.length; i++) {
