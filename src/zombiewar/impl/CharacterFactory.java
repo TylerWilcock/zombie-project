@@ -18,6 +18,7 @@ public class CharacterFactory implements ICharacterFactory{
 	public static final String SOLDIER = "SOLDIER";
 	public static final String TEACHER = "TEACHER";
 	public static final String CHILD = "CHILD";
+	public static final String INVESTIGATOR = "INVESTIGATOR";
 	
   public static final ICharacterFactory instance = new CharacterFactory();
   
@@ -43,6 +44,7 @@ public class CharacterFactory implements ICharacterFactory{
       case SOLDIER  : return new Soldier();
       case TEACHER  : return new Teacher();
       case CHILD    : return new Child();
+      case INVESTIGATOR : return new Investigator();
     }
     return null;
   }

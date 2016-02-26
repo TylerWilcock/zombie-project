@@ -21,6 +21,7 @@ public class Main {
   static int soldierCount = 0;
   static int teacherCount = 0;
   static int childCount = 0;
+  static int investigatorCount = 0;
   
   public static IZombie[] randomZombies() {
     int numZombies = (int) (Math.random() * 10);
@@ -45,6 +46,7 @@ public class Main {
         case 0: survivors[i] = (ISurvivor) factory.make(CharacterFactory.SOLDIER); soldierCount++; break;
         case 1: survivors[i] = (ISurvivor) factory.make(CharacterFactory.TEACHER); teacherCount++; break;
         case 2: survivors[i] = (ISurvivor) factory.make(CharacterFactory.CHILD); childCount++; break;
+	case 3: survivors[i] = (ISurvivor) factory.make(CharacterFactory.INVESTIGATOR); investigatorCount++; break;
       }
     }
     return survivors;
@@ -66,7 +68,7 @@ public class Main {
     IZombie[] zombies = randomZombies();
     ISurvivor[] survivors = randomSurvivors();
 
-    System.out.println("We have " + survivors.length + " survivors trying to make it to safety (" +childCount + " children, " + teacherCount + " teachers, " + soldierCount + " soldiers).");
+    System.out.println("We have " + survivors.length + " survivors trying to make it to safety (" +childCount + " children, " + teacherCount + " teachers, " + investigatorCount + " investigators, " + soldierCount + " soldiers).");
     System.out.println("But there are " + zombies.length + " zombies waiting for them (" +commonCount + " common infected, " + predatorCount + " predators, " + tankCount + " tanks).\n");
     
     while(!allDead(zombies) && !allDead(survivors)) {
