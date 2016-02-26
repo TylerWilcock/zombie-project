@@ -41,7 +41,7 @@ public class Main {
     int numSurvivors = (int) (Math.random() * 20);
     ISurvivor[] survivors = new ISurvivor[numSurvivors];
     for (int i = 0; i < survivors.length; i++) {
-      int type = (int) (Math.random() * 3);
+      int type = (int) (Math.random() * 4);
       switch(type){
         case 0: survivors[i] = (ISurvivor) factory.make(CharacterFactory.SOLDIER); soldierCount++; break;
         case 1: survivors[i] = (ISurvivor) factory.make(CharacterFactory.TEACHER); teacherCount++; break;
