@@ -24,7 +24,7 @@ public class Main {
   static int investigatorCount = 0;
   
   public static IZombie[] randomZombies() {
-    int numZombies = (int) (Math.random() * 10);
+    int numZombies = (int) (Math.random() * 10) + 2;
     IZombie[] zombies = new IZombie[numZombies];
     for (int i = 0; i < zombies.length; i++) {
       int zombieType = (int) (Math.random() * 3);
@@ -38,7 +38,7 @@ public class Main {
   }
 
   public static ISurvivor[] randomSurvivors() {
-    int numSurvivors = (int) (Math.random() * 20);
+    int numSurvivors = (int) (Math.random() * 20) + 2;
     ISurvivor[] survivors = new ISurvivor[numSurvivors];
     for (int i = 0; i < survivors.length; i++) {
       int type = (int) (Math.random() * 4);
@@ -80,7 +80,7 @@ public class Main {
     					if(!zombies[j].isAlive()){ //survivor has killed the zombie
     						String zombieType = zombies[j].zombieType();
     						String survivorType = survivors[i].survivorType();
-    						System.out.println(survivorType + " killed " + zombieType);
+    						System.out.println(survivorType + " " + (i+1) + " killed " + zombieType + " " + (j+1));
     					}
     				}
     			}
@@ -95,7 +95,7 @@ public class Main {
     					if(!survivors[j].isAlive()){ //zombie has killed the survivor
     						String survivorType = survivors[j].survivorType();
     						String zombieType = zombies[i].zombieType();
-    						System.out.println(zombieType + " killed " + survivorType);
+    						System.out.println(zombieType + " " + (i+1) + " killed " + survivorType + " " + (j+1));
     					}
     				}
     			}
