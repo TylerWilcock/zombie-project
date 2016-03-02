@@ -13,6 +13,7 @@ public class CharacterFactory implements ICharacterFactory{
 	public static final String TANK = "TANK";
 	public static final String PREDATOR = "PREDATOR";
 	public static final String COMMON = "COMMON";
+	public static final String DOG = "DOG";
 	
 	/* Survivors */
 	public static final String SOLDIER = "SOLDIER";
@@ -41,6 +42,7 @@ public class CharacterFactory implements ICharacterFactory{
       case TANK     : return new Tank();
       case PREDATOR : return new Predator();
       case COMMON   : return new CommonInfected();
+      case DOG   : return new ZombieDog();
       case SOLDIER  : return new Soldier();
       case TEACHER  : return new Teacher();
       case CHILD    : return new Child();

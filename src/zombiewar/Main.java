@@ -22,16 +22,18 @@ public class Main {
   static int teacherCount = 0;
   static int childCount = 0;
   static int investigatorCount = 0;
+  static int dogCount = 0;
   
   public static IZombie[] randomZombies() {
     int numZombies = (int) (Math.random() * 10) + 2;
     IZombie[] zombies = new IZombie[numZombies];
     for (int i = 0; i < zombies.length; i++) {
-      int zombieType = (int) (Math.random() * 3);
+      int zombieType = (int) (Math.random() * 4);
       switch(zombieType){
         case 0: zombies[i] = (IZombie) factory.make(CharacterFactory.COMMON); commonCount++; break;
         case 1: zombies[i] = (IZombie) factory.make(CharacterFactory.TANK); tankCount++; break;
         case 2: zombies[i] = (IZombie) factory.make(CharacterFactory.PREDATOR); predatorCount++; break;
+        case 3: zombies[i] = (IZombie) factory.make(CharacterFactory.DOG); dogCount++; break;
       }
     }
     return zombies;
@@ -69,7 +71,7 @@ public class Main {
     ISurvivor[] survivors = randomSurvivors();
 
     System.out.println("We have " + survivors.length + " survivors trying to make it to safety (" +childCount + " children, " + teacherCount + " teachers, " + investigatorCount + " investigators, " + soldierCount + " soldiers).");
-    System.out.println("But there are " + zombies.length + " zombies waiting for them (" +commonCount + " common infected, " + predatorCount + " predators, " + tankCount + " tanks).\n");
+    System.out.println("But there are " + zombies.length + " zombies waiting for them (" +commonCount + " common infected, " + predatorCount + " predators, " + tankCount + " tanks, " + dogCount + " zombie dogs).\n");
     
     while(!allDead(zombies) && !allDead(survivors)) {
     	for(int i = 0; i < survivors.length; i++) {
@@ -101,17 +103,7 @@ public class Main {
     			}
     		}
     	}
-    }
-    
-    
-    //TODO: the survivors attack first.  One characte attack each zombie.
-    //      When all the survivors have done attacking, it's the zombies' 
-    //      turn to attack.  For each zombie that is still alive, attack
-    //      each suvivor that is still alive.  Repeat this cycle until
-    //      all the zombies are all dead or all the survivors are all dead.
-    
-
-    
+    } 
 
     if (allDead(survivors)) {
       System.out.println("\nNone of the survivors made it.");
