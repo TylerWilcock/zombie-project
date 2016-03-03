@@ -1,3 +1,13 @@
+Group Members & Contributors
+github username ------- student name
+++++++++++++++++++++++++++++++++++++++
+iamsteve0009	-------	Steve Smith
+starbask	------- Amanda Starich
+TylerWilcock	------- Tyler Wilcock
+KyleAmundson	------- Kyle Amundson
+dalyjw17	------- John Daly
+AjBronas	------- Andrew Bronas
+
 #Zombie War
 
 
